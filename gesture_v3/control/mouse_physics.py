@@ -36,7 +36,8 @@ class PhysicsCursor:
         self.prev_dy = dy
         
         # 3. Acceleration
-        gain = config.BASE_SENSITIVITY * (1.0 + config.ACCELERATION_FACTOR * mag)
+        # Using a squared factor for much more aggressive "flick" speed
+        gain = config.BASE_SENSITIVITY * (1.0 + (config.ACCELERATION_FACTOR * mag) ** 2)
         gain = min(gain, config.MAX_SENSITIVITY)
         
         move_x = dx * config.WINDOW_WIDTH * gain

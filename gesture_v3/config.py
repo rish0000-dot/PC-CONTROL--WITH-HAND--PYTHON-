@@ -12,8 +12,8 @@ TARGET_FPS = 60
 
 # --- PERCEPTION (OneEuroFilter) ---
 # Low-jitter smoothing parameters
-ONE_EURO_MIN_CUTOFF = 0.5   # Hz. Lower = more smoothing when slow
-ONE_EURO_BETA = 4.0         # Reduced from 10.0 to 4.0 to reduce jitter/dancing
+ONE_EURO_MIN_CUTOFF = 1.2   # Increased for better static precision (less drift)
+ONE_EURO_BETA = 10.0        # Balanced (Smooth yet fast)
 ONE_EURO_D_CUTOFF = 1.0     # Hz. Cutoff for derivative
 
 # --- GESTURE CONFIG ---
@@ -26,16 +26,16 @@ CONFIDENCE_GROWTH = 0.15           # Slower growth (require sustained pinch)
 PINCH_THRESHOLD_NORM = 0.07        # Increased to 0.07 (easier to trigger click)
 
 # --- V6 RELATIVE PHYSICS (AIR MOUSE) ---
-DEAD_ZONE = 0.002        # Anti-tremor: Movement below this is ignored
-BASE_SENSITIVITY = 3.0   # Base speed
-ACCELERATION_FACTOR = 20.0 # Gain for fast movements
-MAX_SENSITIVITY = 12.0   # Cap
-DELTA_SMOOTHING = 0.6    # Lag reduction
+DEAD_ZONE = 0.002        # Restored to 0.002 for better tremor rejection
+BASE_SENSITIVITY = 5.0   # Slightly reduced for control
+ACCELERATION_FACTOR = 40.0 # High but slightly more predictable
+MAX_SENSITIVITY = 30.0   # Keep high cap
+DELTA_SMOOTHING = 0.4    # Balanced between responsive and stable
 
 # --- GESTURES ---
 # Pinch
-PINCH_THRESHOLD_NORM = 0.06
-CLICK_COOLDOWN = 0.4
+PINCH_THRESHOLD_NORM = 0.08 # Increased to 0.08 for easier, more reliable clicking
+CLICK_COOLDOWN = 0.3 # Balanced cooldown
 
 # Scroll
 SCROLL_SPEED = 20

@@ -33,7 +33,7 @@ class HandTracker:
         options = vision.HandLandmarkerOptions(
             base_options=base_options,
             running_mode=vision.RunningMode.VIDEO,
-            num_hands=2, # Support 2 hands for Sci-Fi gestures
+            num_hands=1, # Version 1 restricted to single hand
             min_hand_detection_confidence=0.5,
             min_hand_presence_confidence=0.5,
             min_tracking_confidence=0.5
